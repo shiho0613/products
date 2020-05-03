@@ -17,3 +17,10 @@ print(products)
 
 for p in products:
 	print(p[0], '的價格是', p[1])
+
+#字串可以做加跟乘 'abc' + '123' = 'abc123'
+
+with open('products.cvs', 'w', encoding='utf-8') as f: # .txt 可換乘.cvs, utf-8 世界常用編碼
+	f.write('商品,價格\n') # 追加欄位名稱
+	for p in products:
+		f.write(p[0] + ',' + p[1] + '\n') # ',' 如沒有則都會從在同一格
