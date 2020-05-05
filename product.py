@@ -1,13 +1,19 @@
-#讀取檔案
+import os # operating system
 products = []
-with open('products.cvs', 'r', encoding='utf-8') as f:
-	for line in f:
-		if '商品,價格' in line:
-			continue #繼續，與break不同,不會跳出迴圈,會再重複if迴圈
-		name, price = line.strip().split(',') #用','當作切割的標準
-		products.append([name, price])	
-print(products)
-# strip 將\n去掉
+
+if os.path.isfile('products.cvs'):
+	print('yes have')
+	#讀取檔案
+	with open('products.cvs', 'r', encoding='utf-8') as f:
+		for line in f:
+			if '商品,價格' in line:
+				continue #繼續，與break不同,不會跳出迴圈,會再重複if迴圈
+			name, price = line.strip().split(',') #用','當作切割的標準
+			products.append([name, price])	
+	print(products)
+	# strip 將\n去掉
+else:
+	print('not found')
 
 # 讓使用者輸入
 while True:
